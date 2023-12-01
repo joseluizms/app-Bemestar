@@ -1,9 +1,14 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity  } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { useFonts } from "expo-font";
+import { useNavigation } from '@react-navigation/native'
 
-export const Home = () => {
+
+export const Perfil = () => {
+
+        const {navigate} = useNavigation(); //importante
+
     let [fontsLoaded] = useFonts({
         'Roboto': require('../../fonts/Roboto-regular.ttf'),
     });
@@ -13,14 +18,18 @@ export const Home = () => {
     }
 
     return (
+        
         <LinearGradient colors={['#E1F2E0', '#8DDCE5', '#114A55']} style={styles.container}>
             <View style= {styles.topContent}>
             <Text style={styles.texto1}>Bem estar em </Text>
             <Text style={styles.numero2}>5</Text>
             </View>
-            <TouchableOpacity style={styles.iniciarContainer} onPress={() => window.alert('Button pressed')}>
+            <View style={styles.iniciarContainer}>
+            <TouchableOpacity  onPress={() => navigate('Tarefas')}>
                 <Text style={styles.iniciar}>Começar</Text>
             </TouchableOpacity>
+            </View>
+            
         </LinearGradient>
        
     );
@@ -51,6 +60,7 @@ const styles = StyleSheet.create({
         color: '#114A55', // Ajuste a cor conforme necessário
     },
     iniciarContainer: {
+       
         justifyContent: 'flex-end',
         alignItems: 'center', // Para centralizar horizontalmente
         marginBottom: 120, // Espaço na parte inferior
@@ -62,9 +72,10 @@ const styles = StyleSheet.create({
     },
     iniciar: {
         fontFamily: 'Roboto',
-        fontSize: 25,
-        color: '#114A55',
-    },
+        fontSize: 20,
+        color:'#114A55'
+        
+    }
 });
 
-export default Home;
+export default Perfil;

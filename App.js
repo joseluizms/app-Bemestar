@@ -57,7 +57,7 @@ function HomeTabStack() {
 }
 
 //////////////////
-function TarefasTabStack() {
+export function TarefasTabStack() {
   return (
     <HomeStack.Navigator  screenOptions={{
       headerShown: false

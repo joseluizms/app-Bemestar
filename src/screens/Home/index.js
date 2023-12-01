@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { useFonts } from "expo-font";
 
@@ -18,9 +18,9 @@ export const Home = () => {
             <Text style={styles.texto1}>Bem estar em </Text>
             <Text style={styles.numero2}>5</Text>
             </View>
-            <View style={styles.iniciarContainer}>
+            <TouchableOpacity style={styles.iniciarContainer} onPress={() => window.alert('Button pressed')}>
                 <Text style={styles.iniciar}>Começar</Text>
-            </View>
+            </TouchableOpacity>
         </LinearGradient>
        
     );
@@ -51,7 +51,6 @@ const styles = StyleSheet.create({
         color: '#114A55', // Ajuste a cor conforme necessário
     },
     iniciarContainer: {
-       
         justifyContent: 'flex-end',
         alignItems: 'center', // Para centralizar horizontalmente
         marginBottom: 120, // Espaço na parte inferior
@@ -63,10 +62,9 @@ const styles = StyleSheet.create({
     },
     iniciar: {
         fontFamily: 'Roboto',
-        fontSize: 20,
-        color:'#114A55'
-        
-    }
+        fontSize: 25,
+        color: '#114A55',
+    },
 });
 
 export default Home;

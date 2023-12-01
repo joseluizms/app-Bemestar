@@ -1,9 +1,14 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity  } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { useFonts } from "expo-font";
+import { useNavigation } from '@react-navigation/native'
+
 
 export const Perfil = () => {
+
+        const {navigate} = useNavigation(); //importante
+
     let [fontsLoaded] = useFonts({
         'Roboto': require('../../fonts/Roboto-regular.ttf'),
     });
@@ -13,15 +18,17 @@ export const Perfil = () => {
     }
 
     return (
+        
         <LinearGradient colors={['#E1F2E0', '#8DDCE5', '#114A55']} style={styles.container}>
             <View style= {styles.topContent}>
             <Text style={styles.texto1}>Bem estar em </Text>
             <Text style={styles.numero2}>5</Text>
             </View>
             <View style={styles.iniciarContainer}>
+            <TouchableOpacity  onPress={() => navigate('Tarefas')}>
                 <Text style={styles.iniciar}>Começar</Text>
+            </TouchableOpacity>
             </View>
-
             
         </LinearGradient>
        
